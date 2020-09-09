@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>天气:<span></span></p>
+</body>
+<script>//第二步,浏览器加载,发送ajax请求给服务器,
+  let xhr = new XMLHttpRequest()
+  xhr.open('GET','http://localhost:8888/getWeather',true)
+  xhr.onload = function(){
+    document.querySelector('span').innerText = JSON.parse(xhr.responseText).data
+  }//第四部,浏览器收到服务器返回的JSON字符串传,将其转换成对象,添加到span标签中
+  xhr.send()
+</script> 
+</html>
